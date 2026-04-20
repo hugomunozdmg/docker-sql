@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "clear-docker": "docker system prune -a --volumes",
+        "start": "docker-compose up",
+        "enter": "docker exec -it sql-postgres-1 psql -U myuser -d mydb",
+        "seed": "docker exec -i sql-postgres-1 psql -U myuser -d dive < ./seed.sql",
+        "create-db": "docker exec -i sql-postgres-1 psql -U myuser -d postgres -c \"CREATE DATABASE dive;\"",
+        "drop-db": "docker exec -i sql-postgres-1 psql -U myuser -d postgres -c \"DROP DATABASE IF EXISTS dive;\"",
+        "simulate": "docker exec -i sql-postgres-1 psql -U myuser -d dive < ./script.sql"
+
+    }
+}
